@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "chip8iemulationcore",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/danijelLoc/Chip8iEmulationCore",
+      "state" : {
+        "branch" : "main",
+        "revision" : "c1373ec054f9e630d54f19263bdf9096161b14cf"
+      }
+    }
+  ],
+  "version" : 2
+}
