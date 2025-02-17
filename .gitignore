@@ -62,4 +62,4 @@ fastlane/screenshots/**/*.png
 fastlane/test_output
 
 # Chip8 Programs(ROMs) are not included in this source
-Chip8iEmulator/Chip8Programs
+Chip8iEmulator/Chip8Programs/*

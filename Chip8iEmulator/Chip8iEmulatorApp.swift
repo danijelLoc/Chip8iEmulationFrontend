@@ -11,7 +11,8 @@ import SwiftUI
 struct Chip8iEmulatorApp: App {
     var body: some Scene {
         WindowGroup {
-            Chip8iEmulatorView()
+            Chip8iEmulatorView(soundHandler: PrerecordedSoundHandler(), loadProgram: true)
+                .background(Color.green)
         }
     }
 }
