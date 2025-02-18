@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		691544842D63DF2B0024ED43 /* ScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691544832D63DF240024ED43 /* ScreenView.swift */; };
 		692CF9C12D15EF5600D4220C /* Chip8iEmulationCore in Frameworks */ = {isa = PBXBuildFile; productRef = 692CF9C02D15EF5600D4220C /* Chip8iEmulationCore */; };
 		69345C132D6026E200FC616E /* PrerecordedSoundHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69345C122D6026D800FC616E /* PrerecordedSoundHandler.swift */; };
 		69345C162D60273200FC616E /* SoundHandlerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69345C152D60272E00FC616E /* SoundHandlerProtocol.swift */; };
@@ -29,6 +30,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		691544832D63DF240024ED43 /* ScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenView.swift; sourceTree = "<group>"; };
 		69345C122D6026D800FC616E /* PrerecordedSoundHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrerecordedSoundHandler.swift; sourceTree = "<group>"; };
 		69345C152D60272E00FC616E /* SoundHandlerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundHandlerProtocol.swift; sourceTree = "<group>"; };
 		69345C192D602EDF00FC616E /* iOSVirtualControlsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSVirtualControlsView.swift; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 		69345C182D602ED400FC616E /* SubViews */ = {
 			isa = PBXGroup;
 			children = (
+				691544832D63DF240024ED43 /* ScreenView.swift */,
 				69345C1B2D602FD700FC616E /* macOSKeyboardLayoutView.swift */,
 				69345C192D602EDF00FC616E /* iOSVirtualControlsView.swift */,
 			);
@@ -236,6 +239,7 @@
 				69345C162D60273200FC616E /* SoundHandlerProtocol.swift in Sources */,
 				6934AD352D612585009450EA /* GeneratedSoundHandler.swift in Sources */,
 				69345C1A2D602EF200FC616E /* iOSVirtualControlsView.swift in Sources */,
+				691544842D63DF2B0024ED43 /* ScreenView.swift in Sources */,
 				6937577D2C062127003A84E2 /* Chip8iEmulatorApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -382,7 +386,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MACOSX_DEPLOYMENT_TARGET = 14.6;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = stracenski.Chip8iEmulator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -419,7 +423,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MACOSX_DEPLOYMENT_TARGET = 14.6;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = stracenski.Chip8iEmulator;
 				PRODUCT_NAME = "$(TARGET_NAME)";

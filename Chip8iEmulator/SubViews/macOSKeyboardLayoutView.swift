@@ -10,19 +10,23 @@ import Chip8iEmulationCore
 
 
 struct macOSKeyboardLayoutView: View {
-    @Binding private var usedKeys: Set<UByte>?
-    @Binding private var pressedKeys: Set<Chip8Key>
+    public var emulationCore: Chip8EmulationCore
+    @Binding public var pressedKeys: Set<Chip8Key>
+    @State private var requiredKeys: Set<UByte> = []
     
     var body: some View {
-        VStack {
-            Text("Chip-8 Keyboard Layout")
+        VStack(spacing: 10) {
+            Text("Chip-8 Keyboard Bindings")
                 .font(.headline)
-            Grid {
-                ForEach(Chip8Key.StandardLayout, id: \.self) { row in
-                    HStack {
-                        ForEach(row, id: \.self) { chip8key in
-                            let keyboardKey: Character = Chip8Key.StandardKeyboardBinding.KeyFromValue(chip8key) ?? "?"
-                            let foregroundColor: Color = usedKeys?.contains(chip8key.rawValue) == true ? .white : .gray
+            ForEach(Chip8Key.StandardLayout, id: \.self) { row in
+                HStack(spacing: 10) {
+                    ForEach(row, id: \.self) { chip8key in
+                        let keyboardKey: Character = Chip8Key.StandardKeyboardBinding.KeyFromValue(chip8key) ?? "?"
+                        let foregroundColor: Color = requiredKeys.contains(chip8key.rawValue) == true ? .white : .white.opacity(0.7)
+                        let backgroundColor: Color = pressedKeys.contains(chip8key) ? Color.blue.opacity(0.5) : Color.blue
+                        
+                        Button(action: {
+                        }) {
                             VStack {
                                 Text("chip8: " + chip8key.label)
                                     .font(.footnote.italic())
@@ -30,14 +34,32 @@ struct macOSKeyboardLayoutView: View {
                                     .font(.title2)
                             }
                             .frame(width: 60, height: 60)
-                            .foregroundColor(.white)
-                            .background(pressedKeys.contains(chip8key) ? Color.blue : Color.blue.opacity(0.5))
-                            .border(foregroundColor, width: 2)
+                            .foregroundColor(foregroundColor)
+                            .background(backgroundColor)
+                            .clipShape(RoundedRectangle(cornerRadius: 10))
                         }
+                        .onLongPressGesture(
+                            minimumDuration: 0.01, maximumDistance: 10,
+                            perform: {
+                                emulationCore.onKeyUp(chip8key)
+                            },
+                            onPressingChanged: {state in
+                                if state {
+                                    emulationCore.onKeyDown(chip8key)
+                                } else {
+                                    emulationCore.onKeyUp(chip8key)
+                                }
+                                
+                            }
+                        )
                     }
                 }
             }
         }
         .padding()
+        .onReceive(emulationCore.debugSystemStateInfoPublisher) { systemState in
+            // Map the required keys from the system state
+            requiredKeys = systemState.requiredKeysHelper
+        }
     }
 }

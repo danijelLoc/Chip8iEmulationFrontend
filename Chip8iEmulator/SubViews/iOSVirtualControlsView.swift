@@ -9,11 +9,8 @@ import SwiftUI
 import Chip8iEmulationCore
 
 struct iOSVirtualControlsView: View {
-    @ObservedObject public var emulationCore: Chip8EmulationCore
-    
-//    @ObservedObject public var usedKeys: Set<UByte>
-    @ObservedObject public var systemState: Chip8SystemState
-    
+    var emulationCore: Chip8EmulationCore
+    @State private var requiredKeys: Set<UByte> = []
     
     var body: some View {
         VStack(spacing: 10) {
@@ -26,7 +23,7 @@ struct iOSVirtualControlsView: View {
                                 .font(.title)
                                 .frame(width: 60, height: 60)
                                 .background(Color.blue)
-                                .foregroundColor(systemState.UsedKeysHelper.contains(key.rawValue) == true ? .white : .white.opacity(0.7))
+                                .foregroundColor(requiredKeys.contains(key.rawValue) == true ? .white : .white.opacity(0.7))
                                 .clipShape(RoundedRectangle(cornerRadius: 10))
                         }
                         .onLongPressGesture(
@@ -48,5 +45,9 @@ struct iOSVirtualControlsView: View {
             }
         }
         .padding()
+        .onReceive(emulationCore.debugSystemStateInfoPublisher) { systemState in
+            // Map the required keys from the system state
+            requiredKeys = systemState.requiredKeysHelper
+        }
     }
 }

@@ -24,14 +24,12 @@ struct Chip8iEmulatorView: View {
     private let loadProgram: Bool
     private let soundHandler: SoundHandlerProtocol?
     
-    @State private var fps: Double = 0
-    @State private var frameTimes: [Double] = []
-    @State private var lastFrameUpdate: Date?
-    @State private var lastFrame: [Bool] = Array(repeating: false, count: 64*32)
+    @State private var savedSoundTimer: UByte = 0
+    @State private var savedPlayingInfo: PlayingInfo = .init(hasStarted: false, isPlaying: false)
     
     @State private var pressedKeys: Set<Chip8Key> = []
     
-    private var emulationCore = Chip8EmulationCore(logger: nil)
+    @State private var emulationCore = Chip8EmulationCore(logger: nil)
     
     init(soundHandler: SoundHandlerProtocol?, loadProgram: Bool = true) {
         self.soundHandler = soundHandler
@@ -43,14 +41,14 @@ struct Chip8iEmulatorView: View {
             HStack(spacing: 10) {
                 Button(action: {
                     Task {
-                        if emulationCore.playingInfo.hasStarted {
+                        if savedPlayingInfo.hasStarted {
                             await emulationCore.stop()
                         } else if let program = program {
                             await emulationCore.emulate(program)
                         }
                     }
                 }) {
-                    Image(systemName: emulationCore.playingInfo.hasStarted ? "stop" : "play")
+                    Image(systemName: savedPlayingInfo.hasStarted ? "stop" : "play")
                         .resizable()
                         .scaledToFit()
                         .frame(width: 24, height: 24) // Adjust size as needed
@@ -64,40 +62,24 @@ struct Chip8iEmulatorView: View {
                         await emulationCore.togglePause()
                     }
                 }) {
-                    Image(systemName: emulationCore.playingInfo.isPlaying ? "pause" : "playpause")
+                    Image(systemName: savedPlayingInfo.isPlaying ? "pause" : "playpause")
                         .resizable()
                         .scaledToFit()
                         .frame(width: 24, height: 24) // Adjust size as needed
                         .foregroundColor(.white)
                         .padding()
-                        .background(emulationCore.playingInfo.hasStarted ? Color.blue : Color.gray)
+                        .background(savedPlayingInfo.hasStarted ? Color.blue : Color.gray)
                         .clipShape(RoundedRectangle(cornerRadius: 10))
                 }
-                .disabled(!emulationCore.playingInfo.hasStarted)
+                .disabled(!savedPlayingInfo.hasStarted)
             }
             
-            Text(String(format: "FPS: %.2f", fps))
-                  .font(.headline)
-                  .padding()
-            Image(CGImage.fromMonochromeBitmap(lastFrame, width: 64, height: 32)!, scale: 1, label: Text("Output")
-            )
-                .interpolation(.none)
-                .resizable()
-                .aspectRatio(64.0 / 32.0, contentMode: .fit)
-                .frame(minWidth: 64*3, minHeight: 32*3)
-                .background(Color.red)
-                .padding(10)
-            
-            if let errorInfo = emulationCore.debugErrorInfo {
-                Text("Halted by error - " + errorInfo.localizedDescription)
-                    .font(.system(size: 12))
-                    .foregroundStyle(.red)
-            }
+            ScreenView(emulationCore: emulationCore)
             
 #if os(iOS)
-            iOSVirtualControlsView(emulationCore: emulationCore, systemState: emulationCore.debugSystemStateInfo)
+            iOSVirtualControlsView(emulationCore: emulationCore)
 #elseif os(macOS)
-//            macOSKeyboardLayoutView(emulationCore: emulationCore, pressedKeys: pressedKeys)
+            macOSKeyboardLayoutView(emulationCore: emulationCore, pressedKeys: $pressedKeys)
 #endif
             
         }
@@ -117,35 +99,17 @@ struct Chip8iEmulatorView: View {
         .focusEffectDisabled()
         .onKeyPress(phases: .down, action: onKeyDown)
         .onKeyPress(phases: .up, action: onKeyUp)
-        .onChange(of: emulationCore.outputSoundTimer) { oldValue, newValue in
+        .onReceive(emulationCore.outputSoundTimerPublisher) { value in
+            savedSoundTimer = value
+        }
+        .onReceive(emulationCore.playingInfoPublisher) { value in
+            savedPlayingInfo = value
+        }
+        .onChange(of: savedSoundTimer) { oldValue, newValue in
             soundHandler?.handleSoundTimerChange(soundTimer: newValue)
         }
-        .onChange(of: emulationCore.playingInfo.isPlaying) { oldValue, newValue in
-            soundHandler?.onEmulationPause(isPaused: !newValue)
-        }
-        .onReceive(emulationCore.outputScreenPublisher) { frame in
-            self.lastFrame = frame
-            
-            guard let lastFrameUpdate = lastFrameUpdate else {
-                self.lastFrameUpdate = Date()
-                return
-            }
-            
-            let now = Date()
-            let frameTime = now.timeIntervalSince(lastFrameUpdate)
-            
-            if frameTimes.count == 60 {
-                frameTimes.removeFirst()
-            }
-            
-            frameTimes.append(frameTime)
-            let avgFrameTime = frameTimes.reduce(0, +) / Double(frameTimes.count)
-            fps = 1.0 / avgFrameTime // TODO: Move to CORE DEBUG PUBLISHER !!!!
-
-            self.lastFrameUpdate = now
-        }
-        .onChange(of: emulationCore.debugSystemStateInfo) { oldeValue, newValue in
-            var usedKeys = newValue.UsedKeysHelper
+        .onChange(of: savedPlayingInfo) { oldValue, newValue in
+            soundHandler?.onEmulationPause(isPaused: !newValue.isPlaying)
         }
     }
     
@@ -169,6 +133,8 @@ struct Chip8iEmulatorView: View {
         guard let chip8Key = Chip8Key.StandardKeyboardBinding[key.key.character]
         else { return .ignored }
         
+        pressedKeys.insert(chip8Key)
+        
         emulationCore.onKeyDown(chip8Key)
         return .handled
     }
@@ -176,6 +142,8 @@ struct Chip8iEmulatorView: View {
     func onKeyUp(key: KeyPress) -> KeyPress.Result {
         guard let chip8Key = Chip8Key.StandardKeyboardBinding[key.key.character]
         else { return .ignored }
+        
+        pressedKeys.remove(chip8Key)
         
         emulationCore.onKeyUp(chip8Key)
         return .handled
