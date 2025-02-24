@@ -19,9 +19,16 @@
 		6937577D2C062127003A84E2 /* Chip8iEmulatorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6937577C2C062127003A84E2 /* Chip8iEmulatorApp.swift */; };
 		693757812C062128003A84E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 693757802C062128003A84E2 /* Assets.xcassets */; };
 		693757852C062128003A84E2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 693757842C062128003A84E2 /* Preview Assets.xcassets */; };
+		694423AA2D6CFC9000C728F8 /* Tic-Tac-Toe.ch8 in Resources */ = {isa = PBXBuildFile; fileRef = 694423A92D6CFC9000C728F8 /* Tic-Tac-Toe.ch8 */; };
+		694423AC2D6CFC9800C728F8 /* Breakout.ch8 in Resources */ = {isa = PBXBuildFile; fileRef = 694423AB2D6CFC9800C728F8 /* Breakout.ch8 */; };
 		6950EADB2C943B5100FF2E9B /* 6-keypad.ch8 in Resources */ = {isa = PBXBuildFile; fileRef = 6950EADA2C943B5100FF2E9B /* 6-keypad.ch8 */; };
 		6950EADD2C943B5900FF2E9B /* 5-quirks.ch8 in Resources */ = {isa = PBXBuildFile; fileRef = 6950EADC2C943B5900FF2E9B /* 5-quirks.ch8 */; };
 		6950EAE12C945FAF00FF2E9B /* Pong.ch8 in Resources */ = {isa = PBXBuildFile; fileRef = 6950EAE02C945FAF00FF2E9B /* Pong.ch8 */; };
+		6955E8D42D6D117900422EDF /* macOSToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6955E8D32D6D117000422EDF /* macOSToolbar.swift */; platformFilters = (macos, ); };
+		6955E8D72D6D212600422EDF /* Pong (1 player).ch8 in Resources */ = {isa = PBXBuildFile; fileRef = 6955E8D62D6D212600422EDF /* Pong (1 player).ch8 */; };
+		6955E8D92D6D22DA00422EDF /* SpaceInvaders.ch8 in Resources */ = {isa = PBXBuildFile; fileRef = 6955E8D82D6D22DA00422EDF /* SpaceInvaders.ch8 */; };
+		6955E8DD2D6D2B6700422EDF /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6955E8DC2D6D2B6500422EDF /* Utils.swift */; };
+		6955E8DE2D6D2D3000422EDF /* iOSSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6955E8DA2D6D292400422EDF /* iOSSelectionView.swift */; platformFilter = ios; };
 		696AA1D42C45D78600EEB4C6 /* test_opcode.ch8 in Resources */ = {isa = PBXBuildFile; fileRef = 696AA1D32C45D78600EEB4C6 /* test_opcode.ch8 */; };
 		69BD925A2D15D287000FDE5F /* Stopwatch.ch8 in Resources */ = {isa = PBXBuildFile; fileRef = 69BD92592D15D287000FDE5F /* Stopwatch.ch8 */; };
 		69EB30982C1781B900B44961 /* Chip8iEmulatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6937577E2C062127003A84E2 /* Chip8iEmulatorView.swift */; };
@@ -44,9 +51,16 @@
 		693757802C062128003A84E2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		693757822C062128003A84E2 /* Chip8iEmulator.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Chip8iEmulator.entitlements; sourceTree = "<group>"; };
 		693757842C062128003A84E2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		694423A92D6CFC9000C728F8 /* Tic-Tac-Toe.ch8 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Tic-Tac-Toe.ch8"; sourceTree = "<group>"; };
+		694423AB2D6CFC9800C728F8 /* Breakout.ch8 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Breakout.ch8; sourceTree = "<group>"; };
 		6950EADA2C943B5100FF2E9B /* 6-keypad.ch8 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "6-keypad.ch8"; sourceTree = "<group>"; };
 		6950EADC2C943B5900FF2E9B /* 5-quirks.ch8 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "5-quirks.ch8"; sourceTree = "<group>"; };
 		6950EAE02C945FAF00FF2E9B /* Pong.ch8 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Pong.ch8; sourceTree = "<group>"; };
+		6955E8D32D6D117000422EDF /* macOSToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = macOSToolbar.swift; sourceTree = "<group>"; };
+		6955E8D62D6D212600422EDF /* Pong (1 player).ch8 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pong (1 player).ch8"; sourceTree = "<group>"; };
+		6955E8D82D6D22DA00422EDF /* SpaceInvaders.ch8 */ = {isa = PBXFileReference; lastKnownFileType = file; path = SpaceInvaders.ch8; sourceTree = "<group>"; };
+		6955E8DA2D6D292400422EDF /* iOSSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSSelectionView.swift; sourceTree = "<group>"; };
+		6955E8DC2D6D2B6500422EDF /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		696AA1D32C45D78600EEB4C6 /* test_opcode.ch8 */ = {isa = PBXFileReference; lastKnownFileType = file; path = test_opcode.ch8; sourceTree = "<group>"; };
 		69BD92592D15D287000FDE5F /* Stopwatch.ch8 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Stopwatch.ch8; sourceTree = "<group>"; };
 		69EB30A32C17974900B44961 /* DisplayTest.ch8 */ = {isa = PBXFileReference; lastKnownFileType = file; path = DisplayTest.ch8; sourceTree = "<group>"; };
@@ -86,8 +100,10 @@
 			isa = PBXGroup;
 			children = (
 				691544832D63DF240024ED43 /* ScreenView.swift */,
+				6955E8D32D6D117000422EDF /* macOSToolbar.swift */,
 				69345C1B2D602FD700FC616E /* macOSKeyboardLayoutView.swift */,
 				69345C192D602EDF00FC616E /* iOSVirtualControlsView.swift */,
+				6955E8DA2D6D292400422EDF /* iOSSelectionView.swift */,
 			);
 			path = SubViews;
 			sourceTree = "<group>";
@@ -112,11 +128,13 @@
 		6937577B2C062127003A84E2 /* Chip8iEmulator */ = {
 			isa = PBXGroup;
 			children = (
+				6955E8D52D6D210D00422EDF /* BundledGames */,
 				69345C182D602ED400FC616E /* SubViews */,
 				69345C142D6026EB00FC616E /* SoundHandlers */,
 				69EB30A22C17972A00B44961 /* Chip8Programs */,
 				6937577C2C062127003A84E2 /* Chip8iEmulatorApp.swift */,
 				6937577E2C062127003A84E2 /* Chip8iEmulatorView.swift */,
+				6955E8DC2D6D2B6500422EDF /* Utils.swift */,
 				6934AD322D6122C3009450EA /* Beep.wav */,
 				6934AD362D612CA0009450EA /* Beep2.wav */,
 				693757802C062128003A84E2 /* Assets.xcassets */,
@@ -134,10 +152,21 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		6955E8D52D6D210D00422EDF /* BundledGames */ = {
+			isa = PBXGroup;
+			children = (
+				694423AB2D6CFC9800C728F8 /* Breakout.ch8 */,
+				6950EAE02C945FAF00FF2E9B /* Pong.ch8 */,
+				694423A92D6CFC9000C728F8 /* Tic-Tac-Toe.ch8 */,
+				6955E8D82D6D22DA00422EDF /* SpaceInvaders.ch8 */,
+				6955E8D62D6D212600422EDF /* Pong (1 player).ch8 */,
+			);
+			path = BundledGames;
+			sourceTree = "<group>";
+		};
 		69EB30A22C17972A00B44961 /* Chip8Programs */ = {
 			isa = PBXGroup;
 			children = (
-				6950EAE02C945FAF00FF2E9B /* Pong.ch8 */,
 				6950EADC2C943B5900FF2E9B /* 5-quirks.ch8 */,
 				6950EADA2C943B5100FF2E9B /* 6-keypad.ch8 */,
 				69F75ECE2C90DBD200100B52 /* 7-beep.ch8 */,
@@ -212,8 +241,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6955E8D92D6D22DA00422EDF /* SpaceInvaders.ch8 in Resources */,
 				693757852C062128003A84E2 /* Preview Assets.xcassets in Resources */,
 				6934AD332D6122C3009450EA /* Beep.wav in Resources */,
+				694423AC2D6CFC9800C728F8 /* Breakout.ch8 in Resources */,
+				694423AA2D6CFC9000C728F8 /* Tic-Tac-Toe.ch8 in Resources */,
 				69BD925A2D15D287000FDE5F /* Stopwatch.ch8 in Resources */,
 				696AA1D42C45D78600EEB4C6 /* test_opcode.ch8 in Resources */,
 				6950EADD2C943B5900FF2E9B /* 5-quirks.ch8 in Resources */,
@@ -223,6 +255,7 @@
 				6950EAE12C945FAF00FF2E9B /* Pong.ch8 in Resources */,
 				693757812C062128003A84E2 /* Assets.xcassets in Resources */,
 				69EB30A42C17974900B44961 /* DisplayTest.ch8 in Resources */,
+				6955E8D72D6D212600422EDF /* Pong (1 player).ch8 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -237,8 +270,11 @@
 				69EB30982C1781B900B44961 /* Chip8iEmulatorView.swift in Sources */,
 				69345C1C2D602FE900FC616E /* macOSKeyboardLayoutView.swift in Sources */,
 				69345C162D60273200FC616E /* SoundHandlerProtocol.swift in Sources */,
+				6955E8DE2D6D2D3000422EDF /* iOSSelectionView.swift in Sources */,
 				6934AD352D612585009450EA /* GeneratedSoundHandler.swift in Sources */,
 				69345C1A2D602EF200FC616E /* iOSVirtualControlsView.swift in Sources */,
+				6955E8DD2D6D2B6700422EDF /* Utils.swift in Sources */,
+				6955E8D42D6D117900422EDF /* macOSToolbar.swift in Sources */,
 				691544842D63DF2B0024ED43 /* ScreenView.swift in Sources */,
 				6937577D2C062127003A84E2 /* Chip8iEmulatorApp.swift in Sources */,
 			);

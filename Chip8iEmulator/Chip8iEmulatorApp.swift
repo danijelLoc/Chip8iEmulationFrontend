@@ -6,13 +6,29 @@
 //
 
 import SwiftUI
+import Chip8iEmulationCore
 
 @main
 struct Chip8iEmulatorApp: App {
+    @State private var selectedRom: Chip8Program?
+    @State private var recentFiles: Set<URL> = []
+    @State private var bundledRoms = [
+        "Breakout.ch8",
+        "Pong.ch8",
+        "Tic-Tac-Toe.ch8",
+        "SpaceInvaders.ch8",
+        "Pong (1 player).ch8"
+    ]
+    
     var body: some Scene {
         WindowGroup {
-            Chip8iEmulatorView(soundHandler: PrerecordedSoundHandler(), loadProgram: true)
+            Chip8iEmulatorView(soundHandler: PrerecordedSoundHandler(), selectedRom: $selectedRom, recentFiles: $recentFiles, bundledRoms: $bundledRoms)
                 .background(Color.green)
+        }
+        .commands {
+#if os(macOS)
+        macOSToolbarCommands(selectedProgram: $selectedRom, recentFiles: $recentFiles, bundledRoms: $bundledRoms)
+#endif
         }
     }
 }

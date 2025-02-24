@@ -16,8 +16,9 @@ struct macOSKeyboardLayoutView: View {
     
     var body: some View {
         VStack(spacing: 10) {
-            Text("Chip-8 Keyboard Bindings")
-                .font(.headline)
+            Text("Play with the Keyboard, this is mapping layout")
+                .font(.subheadline)
+                .padding(4)
             ForEach(Chip8Key.StandardLayout, id: \.self) { row in
                 HStack(spacing: 10) {
                     ForEach(row, id: \.self) { chip8key in

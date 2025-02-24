@@ -20,7 +20,7 @@ public struct ScreenView: View {
         VStack {
             Text(String(format: "FPS: %.2f", fps))
                   .font(.headline)
-                  .padding()
+                  .padding(4)
             Image(CGImage.fromMonochromeBitmap(lastFrame, width: 64, height: 32)!, scale: 1, label: Text("Output")
             )
                 .interpolation(.none)
