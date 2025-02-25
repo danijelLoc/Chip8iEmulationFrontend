@@ -3,12 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 60;
+	objectVersion = 56;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		691544842D63DF2B0024ED43 /* ScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691544832D63DF240024ED43 /* ScreenView.swift */; };
-		692CF9C12D15EF5600D4220C /* Chip8iEmulationCore in Frameworks */ = {isa = PBXBuildFile; productRef = 692CF9C02D15EF5600D4220C /* Chip8iEmulationCore */; };
+		69285FEB2D6E656A009A6468 /* Chip8iEmulationCore in Frameworks */ = {isa = PBXBuildFile; productRef = 69285FEA2D6E656A009A6468 /* Chip8iEmulationCore */; };
 		69345C1A2D602EF200FC616E /* iOSVirtualControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69345C192D602EDF00FC616E /* iOSVirtualControlsView.swift */; };
 		69345C1C2D602FE900FC616E /* macOSKeyboardLayoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69345C1B2D602FD700FC616E /* macOSKeyboardLayoutView.swift */; };
 		6934AD332D6122C3009450EA /* Beep.wav in Resources */ = {isa = PBXBuildFile; fileRef = 6934AD322D6122C3009450EA /* Beep.wav */; };
@@ -19,19 +19,13 @@
 		693757852C062128003A84E2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 693757842C062128003A84E2 /* Preview Assets.xcassets */; };
 		694423AA2D6CFC9000C728F8 /* Tic-Tac-Toe.ch8 in Resources */ = {isa = PBXBuildFile; fileRef = 694423A92D6CFC9000C728F8 /* Tic-Tac-Toe.ch8 */; };
 		694423AC2D6CFC9800C728F8 /* Breakout.ch8 in Resources */ = {isa = PBXBuildFile; fileRef = 694423AB2D6CFC9800C728F8 /* Breakout.ch8 */; };
-		6950EADB2C943B5100FF2E9B /* 6-keypad.ch8 in Resources */ = {isa = PBXBuildFile; fileRef = 6950EADA2C943B5100FF2E9B /* 6-keypad.ch8 */; };
-		6950EADD2C943B5900FF2E9B /* 5-quirks.ch8 in Resources */ = {isa = PBXBuildFile; fileRef = 6950EADC2C943B5900FF2E9B /* 5-quirks.ch8 */; };
 		6950EAE12C945FAF00FF2E9B /* Pong.ch8 in Resources */ = {isa = PBXBuildFile; fileRef = 6950EAE02C945FAF00FF2E9B /* Pong.ch8 */; };
 		6955E8D42D6D117900422EDF /* macOSToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6955E8D32D6D117000422EDF /* macOSToolbar.swift */; platformFilters = (macos, ); };
 		6955E8D72D6D212600422EDF /* Pong (1 player).ch8 in Resources */ = {isa = PBXBuildFile; fileRef = 6955E8D62D6D212600422EDF /* Pong (1 player).ch8 */; };
 		6955E8D92D6D22DA00422EDF /* SpaceInvaders.ch8 in Resources */ = {isa = PBXBuildFile; fileRef = 6955E8D82D6D22DA00422EDF /* SpaceInvaders.ch8 */; };
 		6955E8DD2D6D2B6700422EDF /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6955E8DC2D6D2B6500422EDF /* Utils.swift */; };
 		6955E8DE2D6D2D3000422EDF /* iOSSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6955E8DA2D6D292400422EDF /* iOSSelectionView.swift */; platformFilter = ios; };
-		696AA1D42C45D78600EEB4C6 /* test_opcode.ch8 in Resources */ = {isa = PBXBuildFile; fileRef = 696AA1D32C45D78600EEB4C6 /* test_opcode.ch8 */; };
-		69BD925A2D15D287000FDE5F /* Stopwatch.ch8 in Resources */ = {isa = PBXBuildFile; fileRef = 69BD92592D15D287000FDE5F /* Stopwatch.ch8 */; };
 		69EB30982C1781B900B44961 /* Chip8iEmulatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6937577E2C062127003A84E2 /* Chip8iEmulatorView.swift */; };
-		69EB30A42C17974900B44961 /* DisplayTest.ch8 in Resources */ = {isa = PBXBuildFile; fileRef = 69EB30A32C17974900B44961 /* DisplayTest.ch8 */; };
-		69F75ECF2C90DBD200100B52 /* 7-beep.ch8 in Resources */ = {isa = PBXBuildFile; fileRef = 69F75ECE2C90DBD200100B52 /* 7-beep.ch8 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,18 +44,12 @@
 		693757842C062128003A84E2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		694423A92D6CFC9000C728F8 /* Tic-Tac-Toe.ch8 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Tic-Tac-Toe.ch8"; sourceTree = "<group>"; };
 		694423AB2D6CFC9800C728F8 /* Breakout.ch8 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Breakout.ch8; sourceTree = "<group>"; };
-		6950EADA2C943B5100FF2E9B /* 6-keypad.ch8 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "6-keypad.ch8"; sourceTree = "<group>"; };
-		6950EADC2C943B5900FF2E9B /* 5-quirks.ch8 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "5-quirks.ch8"; sourceTree = "<group>"; };
 		6950EAE02C945FAF00FF2E9B /* Pong.ch8 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Pong.ch8; sourceTree = "<group>"; };
 		6955E8D32D6D117000422EDF /* macOSToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = macOSToolbar.swift; sourceTree = "<group>"; };
 		6955E8D62D6D212600422EDF /* Pong (1 player).ch8 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pong (1 player).ch8"; sourceTree = "<group>"; };
 		6955E8D82D6D22DA00422EDF /* SpaceInvaders.ch8 */ = {isa = PBXFileReference; lastKnownFileType = file; path = SpaceInvaders.ch8; sourceTree = "<group>"; };
 		6955E8DA2D6D292400422EDF /* iOSSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSSelectionView.swift; sourceTree = "<group>"; };
 		6955E8DC2D6D2B6500422EDF /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
-		696AA1D32C45D78600EEB4C6 /* test_opcode.ch8 */ = {isa = PBXFileReference; lastKnownFileType = file; path = test_opcode.ch8; sourceTree = "<group>"; };
-		69BD92592D15D287000FDE5F /* Stopwatch.ch8 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Stopwatch.ch8; sourceTree = "<group>"; };
-		69EB30A32C17974900B44961 /* DisplayTest.ch8 */ = {isa = PBXFileReference; lastKnownFileType = file; path = DisplayTest.ch8; sourceTree = "<group>"; };
-		69F75ECE2C90DBD200100B52 /* 7-beep.ch8 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "7-beep.ch8"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,7 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				692CF9C12D15EF5600D4220C /* Chip8iEmulationCore in Frameworks */,
+				69285FEB2D6E656A009A6468 /* Chip8iEmulationCore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -127,7 +115,6 @@
 				6955E8D52D6D210D00422EDF /* BundledGames */,
 				69345C182D602ED400FC616E /* SubViews */,
 				69345C142D6026EB00FC616E /* SoundHandlers */,
-				69EB30A22C17972A00B44961 /* Chip8Programs */,
 				6937577C2C062127003A84E2 /* Chip8iEmulatorApp.swift */,
 				6937577E2C062127003A84E2 /* Chip8iEmulatorView.swift */,
 				6955E8DC2D6D2B6500422EDF /* Utils.swift */,
@@ -160,19 +147,6 @@
 			path = BundledGames;
 			sourceTree = "<group>";
 		};
-		69EB30A22C17972A00B44961 /* Chip8Programs */ = {
-			isa = PBXGroup;
-			children = (
-				6950EADC2C943B5900FF2E9B /* 5-quirks.ch8 */,
-				6950EADA2C943B5100FF2E9B /* 6-keypad.ch8 */,
-				69F75ECE2C90DBD200100B52 /* 7-beep.ch8 */,
-				696AA1D32C45D78600EEB4C6 /* test_opcode.ch8 */,
-				69EB30A32C17974900B44961 /* DisplayTest.ch8 */,
-				69BD92592D15D287000FDE5F /* Stopwatch.ch8 */,
-			);
-			path = Chip8Programs;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -190,7 +164,7 @@
 			);
 			name = Chip8iEmulator;
 			packageProductDependencies = (
-				692CF9C02D15EF5600D4220C /* Chip8iEmulationCore */,
+				69285FEA2D6E656A009A6468 /* Chip8iEmulationCore */,
 			);
 			productName = Chip8iEmulator;
 			productReference = 693757792C062127003A84E2 /* Chip8iEmulator.app */;
@@ -221,7 +195,7 @@
 			);
 			mainGroup = 693757702C062127003A84E2;
 			packageReferences = (
-				6986DE002D15EE7A006FAE2B /* XCLocalSwiftPackageReference "../Chip8iEmulationCore" */,
+				69285FE92D6E656A009A6468 /* XCRemoteSwiftPackageReference "Chip8iEmulationCore" */,
 			);
 			productRefGroup = 6937577A2C062127003A84E2 /* Products */;
 			projectDirPath = "";
@@ -242,15 +216,9 @@
 				6934AD332D6122C3009450EA /* Beep.wav in Resources */,
 				694423AC2D6CFC9800C728F8 /* Breakout.ch8 in Resources */,
 				694423AA2D6CFC9000C728F8 /* Tic-Tac-Toe.ch8 in Resources */,
-				69BD925A2D15D287000FDE5F /* Stopwatch.ch8 in Resources */,
-				696AA1D42C45D78600EEB4C6 /* test_opcode.ch8 in Resources */,
-				6950EADD2C943B5900FF2E9B /* 5-quirks.ch8 in Resources */,
-				6950EADB2C943B5100FF2E9B /* 6-keypad.ch8 in Resources */,
 				6934AD372D612CA0009450EA /* Beep2.wav in Resources */,
-				69F75ECF2C90DBD200100B52 /* 7-beep.ch8 in Resources */,
 				6950EAE12C945FAF00FF2E9B /* Pong.ch8 in Resources */,
 				693757812C062128003A84E2 /* Assets.xcassets in Resources */,
-				69EB30A42C17974900B44961 /* DisplayTest.ch8 in Resources */,
 				6955E8D72D6D212600422EDF /* Pong (1 player).ch8 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -397,6 +365,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Chip8iEmulator/Chip8iEmulator.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Chip8iEmulator/Preview Content\"";
@@ -434,6 +403,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Chip8iEmulator/Chip8iEmulator.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Chip8iEmulator/Preview Content\"";
@@ -488,17 +458,21 @@
 		};
 /* End XCConfigurationList section */
 
-/* Begin XCLocalSwiftPackageReference section */
-		6986DE002D15EE7A006FAE2B /* XCLocalSwiftPackageReference "../Chip8iEmulationCore" */ = {
-			isa = XCLocalSwiftPackageReference;
-			relativePath = ../Chip8iEmulationCore;
+/* Begin XCRemoteSwiftPackageReference section */
+		69285FE92D6E656A009A6468 /* XCRemoteSwiftPackageReference "Chip8iEmulationCore" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/danijelLoc/Chip8iEmulationCore";
+			requirement = {
+				kind = exactVersion;
+				version = 0.9.9;
+			};
 		};
-/* End XCLocalSwiftPackageReference section */
+/* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		692CF9C02D15EF5600D4220C /* Chip8iEmulationCore */ = {
+		69285FEA2D6E656A009A6468 /* Chip8iEmulationCore */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 6986DE002D15EE7A006FAE2B /* XCLocalSwiftPackageReference "../Chip8iEmulationCore" */;
+			package = 69285FE92D6E656A009A6468 /* XCRemoteSwiftPackageReference "Chip8iEmulationCore" */;
 			productName = Chip8iEmulationCore;
 		};
 /* End XCSwiftPackageProductDependency section */

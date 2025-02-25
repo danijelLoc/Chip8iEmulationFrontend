@@ -1,4 +1,4 @@
-# Chip8 Emulator Frontend Example
+# Chip8iEmulationFrontend
 
 This is a frontend example usage of the **Chip8iEmulationCore** Swift package. It provides a SwiftUI interface for running a Chip8 emulation core on **macOS** and **iOS**.
 
@@ -16,8 +16,10 @@ For more information about the **Chip8iEmulationCore** visit https://github.com/
 ## Screenshots
 
 ### iOS
-<img src="./Chip8iEmulator/Screenshots/iOS.png" alt="Usage example in iOS app" width="250"/>
-<img src="./Chip8iEmulator/Screenshots/iOS-game-selection.png" alt="Usage example in iOS app" width="250"/>
+<p float="left">
+    <img src="./Chip8iEmulator/Screenshots/iOS.png" alt="Usage example in iOS app" width="250"/>
+    <img src="./Chip8iEmulator/Screenshots/iOS-game-selection.png" alt="Usage example in iOS app" width="250"/>
+</p>
 
 ### macOS
 <img src="./Chip8iEmulator/Screenshots/macOS.png" alt="Usage example in macOS app" width="500"/>
