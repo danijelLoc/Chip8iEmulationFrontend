@@ -30,7 +30,7 @@ struct GameSelectionSheet: View {
 
                 // Recent Files Section
                 if !recentFiles.isEmpty {
-                    Section(header: Text("Recent Games")) {
+                    Section(header: Text("Recent Game Files")) {
                         ForEach(Array(recentFiles), id: \.self) { file in
                             Button(action: { selectRom(fileUrl: file) }) {
                                 Label(
@@ -81,13 +81,13 @@ struct GameSelectionSheet: View {
 
     func selectRom(bundle: String) {
         guard let fileUrl = Utils.bundledRomUrl(name: bundle) else { return }
-        let program = Utils.loadProgramRom(from: fileUrl)
+        let program = Utils.safeLoadProgramRom(from: fileUrl)
         selectedProgram = program
         isPresented = false
     }
 
     func selectRom(fileUrl: URL) {
-        let program = Utils.loadProgramRom(from: fileUrl)
+        let program = Utils.safeLoadProgramRom(from: fileUrl)
         recentFiles.insert(fileUrl)
         selectedProgram = program
         isPresented = false

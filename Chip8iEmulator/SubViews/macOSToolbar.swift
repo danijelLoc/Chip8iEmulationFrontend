@@ -17,7 +17,7 @@ struct macOSToolbarCommands: Commands {
     
     var body: some Commands {
         CommandGroup(replacing: .newItem) {
-            Button("Select ROM from ch8 file...") {
+            Button("Select game from ch8 file...") {
                 showOpenPanel()
             }
 
@@ -55,12 +55,12 @@ struct macOSToolbarCommands: Commands {
     
     func selectRom(bundle: String) {
         guard let fileUrl = Utils.bundledRomUrl(name: bundle) else { return }
-        let program = Utils.loadProgramRom(from: fileUrl)
+        let program = Utils.safeLoadProgramRom(from: fileUrl)
         selectedProgram = program
     }
     
     func selectRom(fileUrl: URL) {
-        let program = Utils.loadProgramRom(from: fileUrl)
+        let program = Utils.safeLoadProgramRom(from: fileUrl)
         recentFiles.insert(fileUrl)
         selectedProgram = program
     }

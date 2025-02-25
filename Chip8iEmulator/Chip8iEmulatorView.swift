@@ -18,20 +18,20 @@ struct KeyState: Equatable, Identifiable {
 }
 
 struct Chip8iEmulatorView: View {
-    let soundHandler: SoundHandlerProtocol?
     
     @Binding var selectedRom: Chip8Program?
     @Binding var recentFiles: Set<URL>
     @Binding var bundledRoms: [String]
 
-    @State private var savedSoundTimer: UByte = 0
     @State private var savedPlayingInfo: PlayingInfo = .init(
         hasStarted: false, isPlaying: false)
 
     @State private var pressedKeys: Set<Chip8Key> = []
-    @State private var emulationCore = Chip8EmulationCore(logger: nil)
+    @State private var emulationCore = Chip8EmulationCore(
+        soundHandler: PrerecordedSoundHandler(with: "Beep2.wav"), logger: nil)
+    
     @State private var showGameSelection = false
-
+    
     var body: some View {
         VStack {
             HStack(spacing: 10) {
@@ -112,17 +112,8 @@ struct Chip8iEmulatorView: View {
         .focusEffectDisabled()
         .onKeyPress(phases: .down, action: onKeyDown)
         .onKeyPress(phases: .up, action: onKeyUp)
-        .onReceive(emulationCore.outputSoundTimerPublisher) { value in
-            savedSoundTimer = value
-        }
         .onReceive(emulationCore.playingInfoPublisher) { value in
             savedPlayingInfo = value
-        }
-        .onChange(of: savedSoundTimer) { oldValue, newValue in
-            soundHandler?.handleSoundTimerChange(soundTimer: newValue)
-        }
-        .onChange(of: savedPlayingInfo) { oldValue, newValue in
-            soundHandler?.onEmulationPause(isPaused: !newValue.isPlaying)
         }
         .onChange(of: selectedRom) { oldValue, newValue in
             Task {
@@ -148,7 +139,6 @@ struct Chip8iEmulatorView: View {
         else { return .ignored }
 
         pressedKeys.insert(chip8Key)
-
         emulationCore.onKeyDown(chip8Key)
         return .handled
     }
@@ -158,7 +148,6 @@ struct Chip8iEmulatorView: View {
         else { return .ignored }
 
         pressedKeys.remove(chip8Key)
-
         emulationCore.onKeyUp(chip8Key)
         return .handled
     }

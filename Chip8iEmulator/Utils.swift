@@ -14,10 +14,20 @@ public class Utils {
         return fileUrl
     }
 
-    public static func loadProgramRom(from url: URL) -> Chip8Program? {
+    public static func safeLoadProgramRom(from url: URL) -> Chip8Program? {
+        if url.startAccessingSecurityScopedResource() {
+            defer { url.stopAccessingSecurityScopedResource() } // Ensure we stop access after use
+            return loadProgramRom(from: url)
+        } else {
+            return loadProgramRom(from: url)
+        }
+    }
+    
+    private static func loadProgramRom(from url: URL) -> Chip8Program? {
         guard let data = try? Data(contentsOf: url)
         else {
-            fatalError("Cannot read the program rom byte data")
+            print("Cannot read the program rom byte data")
+            return nil
         }
         let fileName = url.lastPathComponent
         // print(data.flatMap{String(format:"%02X", $0)})

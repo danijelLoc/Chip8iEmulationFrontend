@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		691544842D63DF2B0024ED43 /* ScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691544832D63DF240024ED43 /* ScreenView.swift */; };
 		692CF9C12D15EF5600D4220C /* Chip8iEmulationCore in Frameworks */ = {isa = PBXBuildFile; productRef = 692CF9C02D15EF5600D4220C /* Chip8iEmulationCore */; };
-		69345C132D6026E200FC616E /* PrerecordedSoundHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69345C122D6026D800FC616E /* PrerecordedSoundHandler.swift */; };
-		69345C162D60273200FC616E /* SoundHandlerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69345C152D60272E00FC616E /* SoundHandlerProtocol.swift */; };
 		69345C1A2D602EF200FC616E /* iOSVirtualControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69345C192D602EDF00FC616E /* iOSVirtualControlsView.swift */; };
 		69345C1C2D602FE900FC616E /* macOSKeyboardLayoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69345C1B2D602FD700FC616E /* macOSKeyboardLayoutView.swift */; };
 		6934AD332D6122C3009450EA /* Beep.wav in Resources */ = {isa = PBXBuildFile; fileRef = 6934AD322D6122C3009450EA /* Beep.wav */; };
@@ -38,8 +36,7 @@
 
 /* Begin PBXFileReference section */
 		691544832D63DF240024ED43 /* ScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenView.swift; sourceTree = "<group>"; };
-		69345C122D6026D800FC616E /* PrerecordedSoundHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrerecordedSoundHandler.swift; sourceTree = "<group>"; };
-		69345C152D60272E00FC616E /* SoundHandlerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundHandlerProtocol.swift; sourceTree = "<group>"; };
+		69285FE62D6E27DA009A6468 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		69345C192D602EDF00FC616E /* iOSVirtualControlsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSVirtualControlsView.swift; sourceTree = "<group>"; };
 		69345C1B2D602FD700FC616E /* macOSKeyboardLayoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = macOSKeyboardLayoutView.swift; sourceTree = "<group>"; };
 		6934AD322D6122C3009450EA /* Beep.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Beep.wav; sourceTree = "<group>"; };
@@ -89,8 +86,6 @@
 		69345C142D6026EB00FC616E /* SoundHandlers */ = {
 			isa = PBXGroup;
 			children = (
-				69345C152D60272E00FC616E /* SoundHandlerProtocol.swift */,
-				69345C122D6026D800FC616E /* PrerecordedSoundHandler.swift */,
 				6934AD342D612585009450EA /* GeneratedSoundHandler.swift */,
 			);
 			path = SoundHandlers;
@@ -111,6 +106,7 @@
 		693757702C062127003A84E2 = {
 			isa = PBXGroup;
 			children = (
+				69285FE62D6E27DA009A6468 /* README.md */,
 				6937577B2C062127003A84E2 /* Chip8iEmulator */,
 				692CF9BF2D15EF5600D4220C /* Frameworks */,
 				6937577A2C062127003A84E2 /* Products */,
@@ -266,10 +262,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				69345C132D6026E200FC616E /* PrerecordedSoundHandler.swift in Sources */,
 				69EB30982C1781B900B44961 /* Chip8iEmulatorView.swift in Sources */,
 				69345C1C2D602FE900FC616E /* macOSKeyboardLayoutView.swift in Sources */,
-				69345C162D60273200FC616E /* SoundHandlerProtocol.swift in Sources */,
 				6955E8DE2D6D2D3000422EDF /* iOSSelectionView.swift in Sources */,
 				6934AD352D612585009450EA /* GeneratedSoundHandler.swift in Sources */,
 				69345C1A2D602EF200FC616E /* iOSVirtualControlsView.swift in Sources */,
