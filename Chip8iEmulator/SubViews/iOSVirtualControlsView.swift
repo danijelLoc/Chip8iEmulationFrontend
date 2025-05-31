@@ -29,15 +29,20 @@ struct iOSVirtualControlsView: View {
                         .onLongPressGesture(
                             minimumDuration: 0.01, maximumDistance: 10,
                             perform: {
-                                emulationCore.onKeyUp(key)
+                                Task {
+                                    await emulationCore.onKeyUp(key)
+                                }
                             },
                             onPressingChanged: {state in
                                 if state {
-                                    emulationCore.onKeyDown(key)
+                                    Task {
+                                        await emulationCore.onKeyDown(key)
+                                    }
                                 } else {
-                                    emulationCore.onKeyUp(key)
+                                    Task {
+                                        await emulationCore.onKeyUp(key)
+                                    }
                                 }
-                                
                             }
                         )
                     }
@@ -45,9 +50,10 @@ struct iOSVirtualControlsView: View {
             }
         }
         .padding()
-        .onReceive(emulationCore.debugSystemStateInfoPublisher) { systemState in
+        .onChange(of: emulationCore.debugSystemState?.requiredKeysHelper) { oldKeys, newKeys in
             // Map the required keys from the system state
-            requiredKeys = systemState.requiredKeysHelper
+            guard let keys = newKeys else { return }
+            requiredKeys = keys
         }
     }
 }

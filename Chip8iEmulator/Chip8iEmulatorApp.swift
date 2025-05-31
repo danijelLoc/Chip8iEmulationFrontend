@@ -13,11 +13,11 @@ struct Chip8iEmulatorApp: App {
     @State private var selectedRom: Chip8Program?
     @State private var recentFiles: Set<URL> = []
     @State private var bundledRoms = [
-        "SpaceInvaders.ch8",
+        "Pong (1 player).ch8",
         "Breakout.ch8",
-        "Pong.ch8",
         "Tic-Tac-Toe.ch8",
-        "Pong (1 player).ch8"
+        "SpaceInvaders.ch8",
+        "Pong (2 players).ch8"
     ]
     
     var body: some Scene {
@@ -26,7 +26,7 @@ struct Chip8iEmulatorApp: App {
         }
         .commands {
 #if os(macOS)
-        macOSToolbarCommands(selectedProgram: $selectedRom, recentFiles: $recentFiles, bundledRoms: $bundledRoms)
+            macOSMenuToolbar(selectedProgram: $selectedRom, recentFiles: $recentFiles, bundledRoms: $bundledRoms)
 #endif
         }
     }

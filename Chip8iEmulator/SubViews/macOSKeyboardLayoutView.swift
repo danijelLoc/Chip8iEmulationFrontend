@@ -42,15 +42,19 @@ struct macOSKeyboardLayoutView: View {
                         .onLongPressGesture(
                             minimumDuration: 0.01, maximumDistance: 10,
                             perform: {
-                                emulationCore.onKeyUp(chip8key)
+                                Task {
+                                    await emulationCore.onKeyUp(chip8key)
+                                }
                             },
                             onPressingChanged: {state in
-                                if state {
-                                    emulationCore.onKeyDown(chip8key)
-                                } else {
-                                    emulationCore.onKeyUp(chip8key)
+                                Task {
+                                    if state {
+                                        await emulationCore.onKeyDown(chip8key)
+                                        
+                                    } else {
+                                        await emulationCore.onKeyUp(chip8key)
+                                    }
                                 }
-                                
                             }
                         )
                     }
@@ -58,9 +62,10 @@ struct macOSKeyboardLayoutView: View {
             }
         }
         .padding()
-        .onReceive(emulationCore.debugSystemStateInfoPublisher) { systemState in
+        .onChange(of: emulationCore.debugSystemState?.requiredKeysHelper) { oldKeys, newKeys in
             // Map the required keys from the system state
-            requiredKeys = systemState.requiredKeysHelper
+            guard let keys = newKeys else { return }
+            requiredKeys = keys
         }
     }
 }
