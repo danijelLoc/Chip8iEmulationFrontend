@@ -1,5 +1,5 @@
 //
-//  iOSSelectionView.swift
+//  iOSMenuSheetView.swift
 //  Chip8iEmulator
 //
 //  Created by Danijel Stracenski on 24.02.2025..
@@ -9,7 +9,7 @@ import Chip8iEmulationCore
 import SwiftUI
 import UniformTypeIdentifiers
 
-struct GameSelectionSheet: View {
+struct iOSMenuSheetView: View {
     @Binding var isPresented: Bool
 
     @Binding var selectedProgram: Chip8Program?
@@ -24,7 +24,7 @@ struct GameSelectionSheet: View {
                 // Load from files option
                 Section {
                     Button(action: { showFileImporter.toggle() }) {
-                        Label("Load from Files...", systemImage: "folder.fill")
+                        Label("Load game from Files...", systemImage: "folder.fill")
                     }
                 }
 
@@ -50,16 +50,16 @@ struct GameSelectionSheet: View {
                     }
                 }
             }
-            .navigationTitle("Select a CHIP-8 Game")
+            .navigationTitle("Menu")
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
-                    Button("Cancel") {
+                    Button("Close") {
                         isPresented = false
                     }
                 }
             }
             .onAppear {
-                loadRecentFiles()
+                loadRecentFileList()
             }
             .fileImporter(
                 isPresented: $showFileImporter,
@@ -93,7 +93,7 @@ struct GameSelectionSheet: View {
         isPresented = false
     }
 
-    func loadRecentFiles() {
+    func loadRecentFileList() {
         if let savedFiles = UserDefaults.standard.array(forKey: "recentFiles")
             as? [URL]
         {

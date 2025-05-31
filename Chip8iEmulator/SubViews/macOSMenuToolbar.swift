@@ -1,5 +1,5 @@
 //
-//  macOSToolbar.swift
+//  macOSMenuToolbar.swift
 //  Chip8iEmulator
 //
 //  Created by Danijel Stracenski on 24.02.2025..
@@ -9,7 +9,7 @@ import SwiftUI
 import Chip8iEmulationCore
 import AppKit
 
-struct macOSToolbarCommands: Commands {
+struct macOSMenuToolbar: Commands {
     @Binding var selectedProgram: Chip8Program?
     @Binding var recentFiles: Set<URL>
     @Binding var bundledRoms: [String]

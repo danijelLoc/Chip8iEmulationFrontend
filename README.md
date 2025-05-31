@@ -12,17 +12,21 @@ For more information about the **Chip8iEmulationCore** visit https://github.com/
 - **Touch Input (iOS)**: On-screen touch controls for easy gameplay on iOS.
 - **Bundled Games**: Preloaded Chip8 ROMs for quick fun.
 - **File Selection (macOS & iOS)**: Load external ROMs from system storage.
+- **Save** and **Load** emulation **state**.
 
 ## Screenshots
 
 ### iOS
 <p float="left">
-    <img src="./Chip8iEmulator/Screenshots/iOS.png" alt="Usage example in iOS app" width="250"/>
-    <img src="./Chip8iEmulator/Screenshots/iOS-game-selection.png" alt="Usage example in iOS app" width="250"/>
+    <img src="./Chip8iEmulator/Screenshots/iOS.png" alt="Usage example in iOS app - game" width="250"/>
+    <img src="./Chip8iEmulator/Screenshots/iOS-menu.png" alt="Usage example in iOS app - menu" width="250"/>
 </p>
 
 ### macOS
-<img src="./Chip8iEmulator/Screenshots/macOS.png" alt="Usage example in macOS app" width="500"/>
+
+> Note: If targeting macOS, run "Chip8iEmulator Prod" scheme to get full speed gamec emulation from Xcode, without need to archive to .app package.
+
+<img src="./Chip8iEmulator/Screenshots/macOS.png" alt="Usage example in macOS app - game" width="500"/>
 
 ## Building project from source
 

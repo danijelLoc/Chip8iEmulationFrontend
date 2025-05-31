@@ -6,7 +6,6 @@
 //
 
 import Chip8iEmulationCore
-import Combine
 import SwiftUI
 
 struct KeyState: Equatable, Identifiable {
@@ -23,6 +22,8 @@ struct Chip8iEmulatorView: View {
     @Binding var recentFiles: Set<URL>
     @Binding var bundledRoms: [String]
 
+    @State private var savedState: EmulationState? = nil
+    
     @State private var savedPlayingInfo: PlayingInfo = .init(
         hasStarted: false, isPlaying: false)
 
@@ -30,7 +31,7 @@ struct Chip8iEmulatorView: View {
     @State private var emulationCore = Chip8EmulationCore(
         soundHandler: PrerecordedSoundHandler(with: "Beep2.wav"), logger: nil)
     
-    @State private var showGameSelection = false
+    @State private var showingMenuSheet = false
     
     var body: some View {
         VStack {
@@ -40,7 +41,7 @@ struct Chip8iEmulatorView: View {
                         if savedPlayingInfo.hasStarted {
                             await emulationCore.stop()
                         } else if let selectedRom = selectedRom {
-                            await emulationCore.emulate(selectedRom)
+                            await emulationCore.startEmulation(selectedRom)
                         }
                     }
                 }) {
@@ -79,12 +80,52 @@ struct Chip8iEmulatorView: View {
                     .clipShape(RoundedRectangle(cornerRadius: 10))
                 }
                 .disabled(!savedPlayingInfo.hasStarted)
+                
+                Button(action: {
+                    Task {
+                        savedState = await emulationCore.exportState()
+                    }
+                }) {
+                    Image(
+                        systemName: "arrow.down.document"
+                    )
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 24, height: 24)  // Adjust size as needed
+                    .foregroundColor(.white)
+                    .padding()
+                    .background(
+                        savedPlayingInfo.hasStarted ? Color.blue : Color.gray
+                    )
+                    .clipShape(RoundedRectangle(cornerRadius: 10))
+                }
+                .disabled(!savedPlayingInfo.hasStarted)
+                Button(action: {
+                    Task {
+                        guard let savedState = savedState else { return }
+                        await emulationCore.loadState(savedState)
+                    }
+                }) {
+                    Image(
+                        systemName: "arrow.up.document"
+                    )
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 24, height: 24)  // Adjust size as needed
+                    .foregroundColor(.white)
+                    .padding()
+                    .background(
+                        savedPlayingInfo.hasStarted && savedState?.programContentHash == selectedRom?.contentHash  ? Color.blue : Color.gray
+                    )
+                    .clipShape(RoundedRectangle(cornerRadius: 10))
+                }
+                .disabled(!savedPlayingInfo.hasStarted || savedState?.programContentHash != selectedRom?.contentHash)
             }
             Text("\(selectedRom?.name ?? "Please select game rom")")
                 .padding(4)
 #if os(iOS)
-            Button("Select Game") {
-                showGameSelection = true
+            Button("Menu") {
+                showingMenuSheet = true
             }
 #elseif os(macOS)
             Text("You can select bundled games or file from disk with macOS menu bar at the top of the screen.")
@@ -102,7 +143,7 @@ struct Chip8iEmulatorView: View {
 
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)  // Fill parent & align to top
-        .padding()
+        .padding(4)
         .onAppear(perform: {
             Task {
                 // On appear....
@@ -112,8 +153,8 @@ struct Chip8iEmulatorView: View {
         .focusEffectDisabled()
         .onKeyPress(phases: .down, action: onKeyDown)
         .onKeyPress(phases: .up, action: onKeyUp)
-        .onReceive(emulationCore.playingInfoPublisher) { value in
-            savedPlayingInfo = value
+        .onChange(of: emulationCore.playingInfo) { oldValue, newValue in
+            savedPlayingInfo = newValue
         }
         .onChange(of: selectedRom) { oldValue, newValue in
             Task {
@@ -121,13 +162,20 @@ struct Chip8iEmulatorView: View {
                     await emulationCore.stop()
                 }
                 if let selectedRom = selectedRom {
-                    await emulationCore.emulate(selectedRom)
+                    await emulationCore.startEmulation(selectedRom)
+                }
+            }
+        }
+        .onChange(of: showingMenuSheet) { isPresentedOld, isPresentedNew in
+            Task {
+                if !(isPresentedNew == true && !savedPlayingInfo.isPlaying) && savedPlayingInfo.hasStarted {
+                    await emulationCore.togglePause()
                 }
             }
         }
 #if os(iOS)
-        .sheet(isPresented: $showGameSelection) {
-            GameSelectionSheet(isPresented: $showGameSelection, selectedProgram: $selectedRom, recentFiles: $recentFiles, bundledRoms: $bundledRoms)
+        .sheet(isPresented: $showingMenuSheet) {
+            iOSMenuSheetView(isPresented: $showingMenuSheet, selectedProgram: $selectedRom, recentFiles: $recentFiles, bundledRoms: $bundledRoms)
         }
 #endif
     }
@@ -137,21 +185,31 @@ struct Chip8iEmulatorView: View {
     func onKeyDown(key: KeyPress) -> KeyPress.Result {
         guard let chip8Key = Chip8Key.StandardKeyboardBinding[key.key.character]
         else { return .ignored }
-
         pressedKeys.insert(chip8Key)
-        emulationCore.onKeyDown(chip8Key)
+        
+        Task {
+            await emulationCore.onKeyDown(chip8Key)
+        }
         return .handled
     }
 
     func onKeyUp(key: KeyPress) -> KeyPress.Result {
         guard let chip8Key = Chip8Key.StandardKeyboardBinding[key.key.character]
         else { return .ignored }
-
         pressedKeys.remove(chip8Key)
-        emulationCore.onKeyUp(chip8Key)
+        
+        Task {
+            await emulationCore.onKeyUp(chip8Key)
+        }
+
         return .handled
     }
 }
 
 #Preview {
+    @Previewable @State var selectedRom: Chip8Program? = nil
+    @Previewable @State var recentFiles: Set<URL> = []
+    @Previewable @State var bundledRoms = [String]()
+    
+    Chip8iEmulatorView(selectedRom: $selectedRom, recentFiles: $recentFiles, bundledRoms: $bundledRoms)
 }

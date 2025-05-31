@@ -5,11 +5,11 @@
 //  Created by Danijel Stracenski on 15.02.2025..
 //
 
-import Chip8iEmulationCore
 import AVFoundation
+import Chip8iEmulationCore
 
-/// In experimental phase, short beep is not working....
-public class GeneratedSoundHandler: SoundHandlerProtocol{
+/// In experimental phase, short beep is not working... please use PrerecordedSoundHandler from Chip8iEmulationCore
+public class GeneratedSoundHandler: SoundHandlerProtocol {
     private var audioEngine: AVAudioEngine?
     private var beepPlayerNode: AVAudioPlayerNode?
     private var beepBuffer: AVAudioPCMBuffer?

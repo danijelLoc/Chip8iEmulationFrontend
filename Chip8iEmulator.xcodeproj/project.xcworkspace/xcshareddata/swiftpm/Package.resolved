@@ -6,8 +6,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/danijelLoc/Chip8iEmulationCore",
       "state" : {
-        "revision" : "ef247bb41ea303cd594fd854dcc98c8873673c4f",
-        "version" : "0.9.9"
+        "revision" : "af92fb6e8e21ed8e5840e4c7662c388e383190d0",
+        "version" : "1.5.0"
       }
     }
   ],
