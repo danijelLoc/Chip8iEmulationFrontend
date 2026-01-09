@@ -32,10 +32,6 @@ For more information about the **Chip8iEmulationCore** visit https://github.com/
 
 1. Clone the repository.
 2. Build and run on macOS or iOS targets using Xcode.
-
-## Run GitHub release builds
-
-TODO ... app signing ...
  
 ## Notes
 
