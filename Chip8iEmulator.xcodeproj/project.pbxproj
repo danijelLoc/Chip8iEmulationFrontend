@@ -24,6 +24,7 @@
 		6955E8D92D6D22DA00422EDF /* SpaceInvaders.ch8 in Resources */ = {isa = PBXBuildFile; fileRef = 6955E8D82D6D22DA00422EDF /* SpaceInvaders.ch8 */; };
 		6955E8DD2D6D2B6700422EDF /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6955E8DC2D6D2B6500422EDF /* Utils.swift */; };
 		6955E8DE2D6D2D3000422EDF /* iOSMenuSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6955E8DA2D6D292400422EDF /* iOSMenuSheetView.swift */; platformFilter = ios; };
+		69B518122F1171D20003C624 /* ExecutionMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B518112F1171D20003C624 /* ExecutionMenu.swift */; };
 		69BF57022DEB77B900EA7C41 /* Chip8iEmulationCore in Frameworks */ = {isa = PBXBuildFile; productRef = 69BF57012DEB77B900EA7C41 /* Chip8iEmulationCore */; };
 		69EB30982C1781B900B44961 /* Chip8iEmulatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6937577E2C062127003A84E2 /* Chip8iEmulatorView.swift */; };
 /* End PBXBuildFile section */
@@ -50,6 +51,7 @@
 		6955E8D82D6D22DA00422EDF /* SpaceInvaders.ch8 */ = {isa = PBXFileReference; lastKnownFileType = file; path = SpaceInvaders.ch8; sourceTree = "<group>"; };
 		6955E8DA2D6D292400422EDF /* iOSMenuSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSMenuSheetView.swift; sourceTree = "<group>"; };
 		6955E8DC2D6D2B6500422EDF /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		69B518112F1171D20003C624 /* ExecutionMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExecutionMenu.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +84,7 @@
 		69345C182D602ED400FC616E /* SubViews */ = {
 			isa = PBXGroup;
 			children = (
+				69B518112F1171D20003C624 /* ExecutionMenu.swift */,
 				691544832D63DF240024ED43 /* ScreenView.swift */,
 				6955E8D32D6D117000422EDF /* macOSMenuToolbar.swift */,
 				69345C1B2D602FD700FC616E /* macOSKeyboardLayoutView.swift */,
@@ -233,6 +236,7 @@
 				69EB30982C1781B900B44961 /* Chip8iEmulatorView.swift in Sources */,
 				69345C1C2D602FE900FC616E /* macOSKeyboardLayoutView.swift in Sources */,
 				6955E8DE2D6D2D3000422EDF /* iOSMenuSheetView.swift in Sources */,
+				69B518122F1171D20003C624 /* ExecutionMenu.swift in Sources */,
 				6934AD352D612585009450EA /* GeneratedSoundHandler.swift in Sources */,
 				69345C1A2D602EF200FC616E /* iOSVirtualControlsView.swift in Sources */,
 				6955E8DD2D6D2B6700422EDF /* Utils.swift in Sources */,
